@@ -8680,8 +8680,11 @@ section {
 
 .navbar-row {
   background-color: #f5fbfe; }
+  .navbar-row .navbar-nav {
+    display: inherit; }
   .navbar-row .nav-item {
-    padding-left: 10px; }
+    padding-left: 10px;
+    display: inline-block; }
   .navbar-row .nav-link {
     display: inline-block; }
 

@@ -123,16 +123,23 @@ section {
 .navbar-row {
 
 	background-color: $gray;
+	
+	.navbar-nav {
+
+	    display: inherit;
+	}
 
 	.nav-item {
 			@extend .breadcrumb-item;
 			padding-left: 10px;
+			display: inline-block;
 		}
 
 		.nav-link {
 			display: inline-block;
 		}
 	}
+
 
 
 //gradient row
