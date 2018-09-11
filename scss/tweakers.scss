@@ -1,0 +1,413 @@
+// Tweakers.scss
+
+//breakpoints
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+@mixin respond-below($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+
+  // If the breakpoint doesn't exist in the map.
+  } @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+//variables
+
+$font-sm: 12px;
+$font-md: 16px;
+$font-lg: 24px;
+
+$light: 100;
+
+$gray: #f5fbfe;
+$darkgray: #808080;
+$green: #669934;
+$blue : #316796;
+
+
+$h-300: 300px;
+$h-100: 100px;
+$h-half: 50%;
+		
+//global fixes
+
+p, div, span, {
+	font-size: $font-md;
+}
+
+a {
+	color: $blue;
+}
+
+img {
+	@include img-fluid;
+	}
+
+section {
+		padding: 40px 0;
+	}
+
+.container {
+
+		max-width: 100%;
+		padding: 0 150px;
+
+	}
+
+.align-items-center {
+	display: flex;
+}
+
+.cta-btn {
+
+		margin: 0 auto;
+		background: #ffffff;
+		border: 1px solid transparent;
+		border-radius: 0px;
+		padding: 10px 20px;
+		color: green;
+		width: 100%;
+		max-width: 250px;
+		cursor: pointer;
+
+
+		&:after {
+			content:"\f054";
+			font-family:"FontAwesome";
+			padding-left: 10px;
+		}
+		&:hover {
+			background: #f5f5f5;
+			border: 1px solid $green;
+		}
+
+}
+
+
+
+.h-300 {
+		min-height: $h-300;
+	}
+
+//brand row
+
+.brand-row {
+
+		img {
+		max-width: 200px;
+		}
+
+	}
+
+//nav
+
+
+.navbar-row {
+
+	background-color: $gray;
+
+	.nav-item {
+			@extend .breadcrumb-item;
+			padding-left: 10px;
+		}
+
+		.nav-link {
+			display: inline-block;
+		}
+	}
+
+
+//gradient row
+
+.gradient-bg {
+	background-image: linear-gradient(to right, #1c17b2 , #e6e917), no-repeat;
+	min-height: 20px;
+	width: 100%;
+	position: relative;
+	display: block
+}
+
+//hero-section
+
+	.hero-section {
+		background: url('assets/hero-bg.png'), no-repeat;
+		background-size: cover;
+		color: #fff;
+	}
+
+//body-section w/ sidebar
+
+.intro-area {
+	p:first-of-type {
+		font-size: $font-lg ;
+	}
+}
+
+.list-area {
+
+		ul li {
+
+		    list-style: none;
+		    padding: 5px 0;
+
+		    &:before {
+		    	content: "\f058";
+			    font-family: FontAwesome;
+			    position: absolute;
+			    margin-left: -30px;
+			    color: #a5c2df;
+
+		    }
+
+		}
+		h3 {
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 10px;
+		}
+
+	}
+
+.img-expand {
+	img{
+	border: 3px solid #ddd;
+	}
+	i {
+	background: #ddd;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: $darkgray;
+	}
+}
+
+.sidebar  {
+
+	.col-md-4, .col-md-8{
+	padding: 0px;
+	}
+
+}
+
+
+.cta-section{
+	background-image: linear-gradient(to right, #e9f7fe 10% , #f5f5f5);
+	p {
+		font-size: $font-sm;
+	}
+}
+
+
+.bump-right {
+
+	padding: 20px 20px 20px 150px;
+
+}
+
+.bump-left {
+
+	padding: 20px 150px 20px 20px;
+
+}
+
+.rss-area {
+	ul {
+		list-style: none;
+		padding-left: 0px;
+
+		li {
+		border-bottom: 1px solid #ddd;
+		padding: 10px 0px;
+		}
+	}
+}
+
+
+
+//corp-section
+
+
+.testimonial-area {
+
+	background: rgba(45, 100, 149, 0.9);
+	color: #fff;
+
+}
+
+
+
+.people {
+
+	background: url('assets/culture-yogibo.jpg');
+	height: $h-half;
+
+}
+
+.careers {
+
+	background: url('assets/culture-forest.jpg');
+	height: $h-half;
+
+}
+
+.corp-section {
+
+	background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('assets/footer_bg.png') no-repeat;
+	background-size: cover;
+
+	.row:first-of-type {
+
+    min-height: 400px;
+    height: 100%;
+
+	}
+
+	.col-md-6 {
+
+	min-height: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+	display: inline-block;
+	position: relative;
+
+	}
+
+	.testimonial-area, .people, .careers {
+	padding: 50px;
+
+	}
+
+	.light {
+	font-size: inherit;
+	font-weight: $light;
+
+	}
+
+	.bio, .quote {
+
+		padding: 10px;
+
+	}
+
+
+}
+
+
+.bio {
+
+	display: inline-block;
+	max-width: 30%;
+	float: left;
+	text-align: center;
+
+	p {
+		font-size: $font-sm;
+		margin-bottom: .2rem;
+
+		&:first-of-type {
+			font-weight: bolder;
+		}
+	}
+
+	.circle-pic {
+	border: 3px solid #fff;
+	border-radius: 50%;
+	margin-bottom: 10px;
+	}
+
+}
+
+.quote {
+
+	display: inline-block;
+	max-width: 70%;
+	float: left;
+	p {
+		font-size: $font-lg;
+		font-weight: $light;
+	}
+}
+
+
+
+.logos-area{
+
+ 	.col-md-3{
+
+	text-align: center;
+
+	}
+
+	img {
+
+	max-height: 50px;
+	-webkit-filter: brightness(0) invert(1);/* Safari 6.0 - 9.0 */
+	filter: brightness(0) invert(1);
+
+	}
+
+	div {
+	display: inline-block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	}
+
+}
+
+//media-queries
+
+@include respond-below(md) {
+  .container{
+     max-width: 100%;
+    padding: 0 50px;
+  }
+  .container-fluid {
+  	padding-right: 15px;
+    padding-left: 15px;
+  }
+  .row {padding-left: initial;}
+  .bump-right, .bump-left {
+  	padding:50px;
+  }
+}
+
+
+@include respond-below(sm) {
+  .container{
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .container-fluid {
+  	padding-right: 15px;
+    padding-left: 15px;
+  }
+  .row {padding-left: initial;}
+  .bump-right, .bump-left {
+  	padding:10px;
+  }
+}
+
+
+
+
+
+
